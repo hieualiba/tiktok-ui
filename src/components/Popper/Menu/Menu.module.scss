@@ -7,19 +7,46 @@
         margin-left: 0;
         width: 100%;
         justify-content: flex-start;
-        height: 41px;
+        height: 42px;
     }
 }
 
+//menu item
 .menu-popper {
     padding-bottom: 8px;
     top: calc(100% - 16px);
 }
 
 .menu-item {
+    &.separate {
+        border-top: 1px solid rgba(22, 24, 35, .12);
+    }
+
     &:hover {
         background-color: rgba(22, 24, 35, .03);
     }
 }
 
-//menu-item
+//Header
+.header {
+    position: relative;
+    height: 50px;
+    margin-top: -8px;
+}
+
+.back-btn {
+    width: 50px;
+    height: 100%;
+    font-size: 1.5rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.header-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    font-size: 1.6rem;
+}
