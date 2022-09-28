@@ -1,0 +1,43 @@
+@import 'normalize.css';
+@import url('https://use.typekit.net/waz4tsx.css'); //link font chữ
+
+
+:root {
+    --primary: #FE2C55;
+    --default-layout-header-hight: 60px;
+    --default-layout-width: 1150px;
+    --text-color: #161823;
+    --white: #fff;
+    --black: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+
+}
+
+body {
+    font-family: ibm-plex-sans, sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+}
+
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+
+a[href] {
+    color: var(--text-color);
+    text-decoration: none;
+}
+

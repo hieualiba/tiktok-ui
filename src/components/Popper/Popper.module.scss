@@ -1,0 +1,23 @@
+.wrapper {
+    width: 100%;
+    background: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+    border-radius: 8px;
+    max-height: min((100vh - 96px) - 60px, 734px);
+    position: absolute;
+    left: 26px;
+    top: calc(var(--default-layout-header-hight) - 18px);
+    padding-top: 8px;
+    margin-top: 8px;
+
+    &:hover {
+        background-color: #fff;
+    }
+
+}
+
+.search-result {
+
+}
+
+
