@@ -17,6 +17,11 @@
     top: calc(100% - 16px);
 }
 
+.menu-body {
+    overflow-y: auto;
+    max-height: 60vh;
+}
+
 .menu-item {
     &.separate {
         border-top: 1px solid rgba(22, 24, 35, .12);
