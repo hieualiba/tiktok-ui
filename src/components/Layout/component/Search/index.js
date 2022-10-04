@@ -55,7 +55,7 @@ function Search() {
     const handleChange = (e) => {
         const searchValue = e.target.value;
 
-        if (!searchValue.startsWith('')) {
+        if (!searchValue.startsWith(' ')) {
             setSearchValue(searchValue);
         }
     };
