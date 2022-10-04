@@ -6,4 +6,4 @@ const routes = {
     search: '/search',
 }
 
-export default routes
+export default routes;

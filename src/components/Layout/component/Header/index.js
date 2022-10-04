@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faEllipsisVertical, faEarthAsia, faGear, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import 'tippy.js/dist/tippy.css'; // optional
 
-import routesConfig from '~/config/routes';
+import config from '~/config';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from "~/assets/images";
@@ -209,7 +209,7 @@ function Header() {
     return (
     <header className = {cx('wrapper')} >
         <div className = {cx('inner')}>
-            <Link to={routesConfig.home} className={cx('logo-link')}>
+            <Link to={config.routes.home} className={cx('logo-link')}>
                 <img src={images.logo} alt="Tiktok" />
             </Link>
             
@@ -246,7 +246,7 @@ function Header() {
                 )}
                 <Menu items={curentUser ? userMenu : MENU_ITEMS} onChange = {handleMenuChange}>
                     {curentUser ? (
-                            <Image className={cx('user-avt')} src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/6ed88ec6f6aaa95ec7f2b29a9d64f808~c5_100x100.jpeg?x-expires=1664164800&x-signature=ntU%2FbTP%2FAnTr5XwI4nqPtodQSUg%3D" alt="Vu Thi Minh Anh"/>
+                            <Image className={cx('user-avt')} src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/6ed88ec6f6aaa95ec7f2b29a9d64f808~c5_100x100.jpeg?x-expires=1665046800&x-signature=0CHa8hmyVa5cvLBmuuLGDi8Baso%3D" alt="Vu Thi Minh Anh"/>
                     ) : (
                         <Tippy>
                             <button className={cx('more-btn')}>
