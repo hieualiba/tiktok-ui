@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import SuggestedAccounts from '~/components/SuggestedAccounts';
 import config from '~/config';
 import Menu, { MenuItem } from './Menu';
 import styles from './Sidebar.module.scss';
@@ -37,6 +38,8 @@ function Sidebar() {
                     }
                 />
             </Menu>
+            <SuggestedAccounts label='Tài khoản được đề xuất'/>
+            {/* <SuggestedAccounts label='Các tài khoản đang follow'/> */}
         </aside>
     )
 }
