@@ -9,14 +9,17 @@
     top: var();
     width: var(--default-layout-width);
     max-width: 100%;
-    min-height: 1000px;
     display: flex;
+}
+
+.sidebar {
 }
 
 .content {
     flex: 1;
-    min-height: 1000px;
+    height: calc(100vh - var(--default-layout-header-hight));
     right: 0;
+    overflow-y: auto;
 }
 
 .bottom-btn {
@@ -30,9 +33,11 @@
 }
 
 .scroll-to-top-btn {
+    margin-top: 12px;
     width: 32px;
     height: 32px;
     border-radius: 52px;
     background: rgba(254, 44, 85, 1);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
 }
