@@ -16,4 +16,23 @@
 .content {
     flex: 1;
     min-height: 1000px;
+    right: 0;
+}
+
+.bottom-btn {
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 8px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.scroll-to-top-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 52px;
+    background: rgba(254, 44, 85, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }

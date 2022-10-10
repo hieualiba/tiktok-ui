@@ -57,7 +57,7 @@ function Sidebar() {
                 />
             </Menu>
             <SuggestedAccounts label='Tài khoản được đề xuất' data={suggestedUser} />
-            {/* <SuggestedAccounts label='Các tài khoản đang follow'/> */}
+            <SuggestedAccounts label='Các tài khoản đang follow' data={suggestedUser} />
         </aside>
     )
 }
