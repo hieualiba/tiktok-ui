@@ -132,3 +132,254 @@
     margin: auto;
 }
 
+.active {
+    background-color: red;
+}
+
+// comment overlay
+
+.cmt-checkbox {
+    display: none;
+
+    &:checked ~ .comment-overlay {
+        display: flex;
+    }
+}
+
+.comment-overlay {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--black);
+    display: none;
+}
+
+.video-box {
+    flex: 1 1 896px;
+    background: rgb(0, 0, 0);
+    position: relative;
+    overflow: hidden;
+}
+
+.video-background {
+    display: flex;
+}
+
+.comment-video {
+    margin: auto;
+    height: 100vh;
+    cursor: pointer;
+}
+
+.close-btn {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 20px;
+    top: 20px;
+    display: flex;
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    transition: opacity 0.3s ease 0s;
+    font-size: 2.4rem;
+    cursor: pointer;
+
+    .close-icon {
+        margin: auto;
+    }
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 84px;
+    height: 40px;
+    width: 40px;
+    border-radius: 100px;
+    color: rgba(22, 24, 35, 1);
+    background-color: rgba(255, 255, 255, 1);
+    overscroll-behavior: contain;
+}
+
+.report-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 40px;
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 20px;
+    padding: 10px 16px;
+    background-color: rgba(255, 255, 255, 0.12);
+    color: var(--white);
+    border-radius: 100px;
+
+    .report-icon {
+        margin-right: 5px;
+    }
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.comment-box {
+    flex: 0 0 544px;
+    width: 544px;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 0px 0px;
+    background-color: var(--white);
+}
+
+.comment-content {
+    padding: 0 32px;
+}
+
+.cmt-heading {
+    display: flex;
+    align-items: center;
+    padding: 22px 0 15px;
+}
+
+.comment-avt {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    flex: 0 0 40px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.dot {
+    margin: 0 4px;
+}
+
+.cmt-info .bg-music {
+    margin: 10px 0 16px;
+}
+
+.cmt-func-btn {
+    display: flex;
+    padding-top: 16px;
+
+    .func-btn {
+        flex-direction: row;
+
+        .action-icon {
+            margin: 0 6px 0 0;
+            height: 32px;
+            width: 32px;
+            font-size: 2rem;
+        }
+    }
+
+    .comment {
+        margin-left: 20px;
+    }
+}
+
+.cmt-video-link {
+    display: flex;
+    margin-top: 16px;
+    padding-bottom: 16px;
+
+    p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex: 1 1 auto;
+        padding: 7px 0px 5px 12px;
+        font-size: 1.4rem;
+        color: #161823bf;
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+
+    .copy-link {
+        height: 34px;
+        border: none;
+        background: none rgba(22, 24, 35, 0.06);
+        outline: none;
+        color: rgb(22, 24, 35);
+        font-weight: 700;
+        flex: 0 0 auto;
+        cursor: pointer;
+        padding: 7px 18px;
+    }
+}
+
+.comment-item {
+    width: 100%;
+    padding: 24px 32px;
+    box-sizing: border-box;
+    background-color: rgb(248, 248, 248);
+    border-top: 1px solid rgba(22, 24, 35, 0.2);
+    border-bottom: 1px solid rgba(22, 24, 35, 0.2);
+    overflow: hidden auto;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+}
+
+.cmt-input-wrapper {
+    flex: 0 0 auto;
+    background-color: rgb(255, 255, 255);
+    margin: 0px 30px;
+    padding: 21px 0px;
+}
+
+.input-box {
+    flex: 1 1 auto;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background-color: rgba(22, 24, 35, 0.06);
+}
+
+.cmt-input {
+    flex: 1 1 auto;
+    height: auto;
+    margin: 10px 8px 10px 0px;
+    font-size: 1.4rem;
+    line-height: 17px;
+    background-color: transparent;
+}
+
+.cmt-input-box {
+    display: flex;
+}
+
+.input-box {
+    padding: 0 9px;
+    display: flex;
+}
+
+.cmt-input-icon {
+    margin: 3px;
+    padding: 5px;
+    line-height: 0;
+}
+
+.post-btn {
+    background-color: transparent;
+    color: rgba(22, 24, 35, 0.34);
+    font-size: 14px;
+    cursor: default;
+    flex: 0 0 48px;
+    line-height: 39px;
+    text-align: right;
+    margin-right: 4px;
+}
+

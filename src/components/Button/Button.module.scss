@@ -76,11 +76,25 @@
     }
 }
 
+.homeFollowing {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 26px;
+    padding: 0 16px;
+    border-color: rgba(22, 24, 35, 0.12);
+    margin-right: 8px;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, .03);
+    }
+}
+
 .text {
     height: 37px;
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 1.6rem;
     line-height: 24px;
     padding: 0 16px;
     border-color: rgba(22, 24, 35, 0.12);

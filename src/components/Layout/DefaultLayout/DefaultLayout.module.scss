@@ -12,9 +12,6 @@
     display: flex;
 }
 
-.sidebar {
-}
-
 .content {
     flex: 1;
     height: calc(100vh - var(--default-layout-header-hight));
