@@ -17,12 +17,11 @@ function Home() {
             setSuggestItem(data)
         )
         .catch((error) => console.log(error))
-    },[])
+    },[page])
 
     return (
         <div className={cx('wrapper')}>
-            {suggestItem.length && suggestItem.map(acc =>(
-                console.log(suggestItem),
+            {suggestItem.length >0 && suggestItem.map(acc =>(
                 <ContentItem key={acc.id} data={acc} />
             ))}
         </div>
