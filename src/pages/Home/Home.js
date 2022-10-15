@@ -9,7 +9,7 @@ const cx = classNames.bind(styles);
 
 
 function Home() {
-    const [suggestItem, setSuggestItem] = useState([])
+    const [suggestItem, setSuggestItem] = useState([1])
 
     useEffect(() => {
         userService.getSuggested({page: 1, perPage: 10})
@@ -17,7 +17,7 @@ function Home() {
             setSuggestItem(data)
         )
         .catch((error) => console.log(error))
-    },[1])
+    },[])
 
     return (
         <div className={cx('wrapper')}>
