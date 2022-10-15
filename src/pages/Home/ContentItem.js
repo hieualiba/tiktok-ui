@@ -6,19 +6,39 @@ import { Link } from "react-router-dom";
 import Button from "~/components/Button";
 import React, {useEffect, useState} from 'react';
 import { faFlag } from "@fortawesome/free-regular-svg-icons";
+import CommentItem from "./CommentItem";
+
 const cx = classNames.bind(styles)
 
 function ContentItem({ data = [] }) {
 //Dùng useState để set State cho thằng bài viết đã like hay chưa.
-const [isLike, setIsLike] = useState(false)
-const [countLike, setCountLike] = useState(data.popular_video.likes_count) // có data rồi thì set giá trị khởi tạo là cái data đó luôn
-const [isFollow, setIsFollow] = useState(false)
+    const [isLike, setIsLike] = useState(false)
+    const [countLike, setCountLike] = useState(data.popular_video.likes_count) // có data rồi thì set giá trị khởi tạo là cái data đó luôn
+    const [isFollow, setIsFollow] = useState(false)
+
+    // comment bài viết
+    const [post, setPost] = useState('')
+    const [posts, setPosts] = useState(() => {
+        const storagePost = JSON.parse(localStorage.getItem('post'))
+        return storagePost
+    }) // nếu ko có data trong localStorage thì lấy []
+
+    const handlePost = () => {
+        setPosts(prev => {
+            const newPost = [...prev, post] // giữ nguyên cmt cũ, add thêm cmt mới
+            
+            const jsonPost = JSON.stringify(newPost)
+            localStorage.setItem('post', jsonPost) // setItem('tên lưu trong localstorage', chuỗi json)
+
+            return newPost
+        }) 
+        setPost('')
+    }
 
     const handleFollow = () => {
         setIsFollow(!isFollow)
     }
 
-   
     const handleLike = () => {
         // khi click like => chạy func này => update lại state isLike
         setIsLike(!isLike) // ngược lại với like || ngược lại với chưa like
@@ -30,10 +50,13 @@ const [isFollow, setIsFollow] = useState(false)
         isLike ? setCountLike(pre => pre +1 ) : setCountLike(data.popular_video.likes_count)
     },[isLike])
     
-    //lifeCycle của anh đây, nếu isLike được cập nhật thì chạy vào hàm if kia, ko thì thôi. có cách làm khác gọn hơn nhưng em ví dụ luôn về life cycle
+    //lifeCycle đây
     // giờ nếu a muốn thoát ra vào lại nó không bị reset lại data ( mất like) thì anh lưu cái state isLike vào localStorage nhé.
     // keyword: how to use localStorage js
+    
+    useEffect(() => {
 
+    },[])
 
     return (
         <div className={cx('content-item')}>
@@ -162,13 +185,19 @@ const [isFollow, setIsFollow] = useState(false)
                                     </div>
                                 </div>
                                 <div className={cx('comment-item')}>
-                                    
+                                        {posts.map((post, index) => (
+                                            <CommentItem key={index} data={post} />
+                                        ))}
                                 </div>
 
                                 <div className={cx('cmt-input-wrapper')}>
                                     <div className={cx('cmt-input-box')}>
                                         <div className={cx('input-box')}>
-                                            <input className={cx('cmt-input')} placeholder="Add comment..." />
+                                            <input className={cx('cmt-input')} // comment input
+                                                placeholder="Add comment..." 
+                                                value={post}
+                                                onChange={e => setPost(e.target.value)}
+                                            />
                                             <span className={cx('cmt-input-icon')}>
                                                 <svg height={22} width={22} viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                                                     <path fillRule="evenodd" clipRule="evenodd" d="M24 6C14.0589 6 6 14.0589 6 24C6 33.9411 14.0589 42 24 42C28.0553 42 31.7921 40.6614 34.8006 38.401L35.6001 37.8003C36.0416 37.4686 36.6685 37.5576 37.0003 37.9992L38.2016 39.5981C38.5334 40.0397 38.4443 40.6666 38.0028 40.9983L37.2033 41.599C33.5258 44.3619 28.9513 46 24 46C11.8497 46 2 36.1503 2 24C2 11.8497 11.8497 2 24 2C36.1503 2 46 11.8497 46 24V26C46 30.4843 42.1949 34 37.8438 34C35.1966 34 32.8496 32.7142 31.3935 30.733C29.5649 32.7403 26.9303 34 24 34C18.4772 34 14 29.5228 14 24C14 18.4772 18.4772 14 24 14C29.5228 14 34 18.4772 34 24C34 24.5814 33.9502 25.1528 33.8541 25.7096C33.8473 25.8052 33.8438 25.902 33.8438 26C33.8438 28.2091 35.6347 30 37.8438 30C40.1201 30 42 28.1431 42 26V24C42 14.0589 33.9411 6 24 6ZM24 18C20.6863 18 18 20.6863 18 24C18 27.3137 20.6863 30 24 30C26.9395 30 29.3891 27.8841 29.9013 25.0918C29.9659 24.7392 30 24.3744 30 24C30 20.6863 27.3137 18 24 18Z"></path>
@@ -183,7 +212,7 @@ const [isFollow, setIsFollow] = useState(false)
                                                 </svg>
                                             </span>
                                         </div>
-                                        <button className={cx('post-btn')}>
+                                        <button className={cx('post-btn')} onClick={handlePost}>
                                             Post
                                         </button>
                                     </div>

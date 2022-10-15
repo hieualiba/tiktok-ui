@@ -27,8 +27,6 @@
     padding-left: 12px;
 }
 
-.account-link {
-}
 
 .nickname {
     font-weight: 700;
@@ -376,7 +374,7 @@
     background-color: transparent;
     color: rgba(22, 24, 35, 0.34);
     font-size: 14px;
-    cursor: default;
+    cursor: pointer;
     flex: 0 0 48px;
     line-height: 39px;
     text-align: right;
