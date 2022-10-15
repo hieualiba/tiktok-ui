@@ -21,7 +21,8 @@ function Home() {
 
     return (
         <div className={cx('wrapper')}>
-            {suggestItem.length > 0 && suggestItem.map(acc =>(
+            {suggestItem.length && suggestItem.map(acc =>(
+                console.log(suggestItem),
                 <ContentItem key={acc.id} data={acc} />
             ))}
         </div>
