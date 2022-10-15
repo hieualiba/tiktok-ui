@@ -17,7 +17,7 @@ function Home() {
             setSuggestItem(data)
         )
         .catch((error) => console.log(error))
-    },[suggestItem])
+    },[])
 
     return (
         <div className={cx('wrapper')}>
