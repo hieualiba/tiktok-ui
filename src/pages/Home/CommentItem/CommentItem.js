@@ -1,16 +1,17 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
 import styles from './CommentItem.module.scss';
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart, faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import Image from "~/components/Images";
+import Tippy from "@tippyjs/react/headless";
 
 const cx = classNames.bind(styles)
 
 
-function CommentItem({ data = '' }) {
+function CommentItem({ data = '', handleDelete = ()=>{} }) {
     const [isLikeCmt, setIsLikeCmt] = useState(false)
     const [countLikeCmt, setCountLikeCmt] = useState(71)
 
@@ -43,15 +44,32 @@ function CommentItem({ data = '' }) {
                     </div>
                 </div>
                 <div className={cx('func-btn')}>
-                    <button className={cx('del-cmt-btn')}>
-                        <svg className={cx('del-cmt-icon')} fill="currentColor" width="2.4rem" height="2.4rem" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" clipRule="evenodd" d="M4 24C4 21.7909 5.79086 20 8 20C10.2091 20 12 21.7909 12 24C12 26.2091 10.2091 28 8 28C5.79086 28 4 26.2091 4 24ZM20 24C20 21.7909 21.7909 20 24 20C26.2091 20 28 21.7909 28 24C28 26.2091 26.2091 28 24 28C21.7909 28 20 26.2091 20 24ZM36 24C36 21.7909 37.7909 20 40 20C42.2091 20 44 21.7909 44 24C44 26.2091 42.2091 28 40 28C37.7909 28 36 26.2091 36 24Z"></path>
-                        </svg>
-                    </button>
+                    <div>
+                        <Tippy
+                            interactive
+                            visible
+                            placement="bottom-end"
+                            offset={[20,4]}
+                            render={attrs => (
+                                <div className = {cx('btn-popper')} tabIndex="-1" {...attrs}>
+                                    <button className={cx('popper-box')} onClick={handleDelete}>
+                                        <FontAwesomeIcon className={cx('popper-icon')} icon={faTrashCan}/>
+                                        <strong>Xóa</strong>
+                                    </button>
+                                </div>
+                            )}
+                        >
+                            <div className={cx('del-cmt-btn')}>
+                                <svg className={cx('del-cmt-icon')} fill="currentColor" width="2.4rem" height="2.4rem" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M4 24C4 21.7909 5.79086 20 8 20C10.2091 20 12 21.7909 12 24C12 26.2091 10.2091 28 8 28C5.79086 28 4 26.2091 4 24ZM20 24C20 21.7909 21.7909 20 24 20C26.2091 20 28 21.7909 28 24C28 26.2091 26.2091 28 24 28C21.7909 28 20 26.2091 20 24ZM36 24C36 21.7909 37.7909 20 40 20C42.2091 20 44 21.7909 44 24C44 26.2091 42.2091 28 40 28C37.7909 28 36 26.2091 36 24Z"></path>
+                                </svg>
+                            </div>
+                        </Tippy>
+                    </div>
                     <div className={cx('like-btn')} onClick={handleLikeCmt}>
                         <FontAwesomeIcon className={cx('like-icon')} 
                             icon={faHeart}
-                            color={isLikeCmt && 'rgb(254, 44, 85)'}
+                            color={isLikeCmt ? 'rgb(254, 44, 85)' : undefined}
                         />
                         {countLikeCmt}
                     </div>

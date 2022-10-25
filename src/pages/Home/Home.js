@@ -7,9 +7,8 @@ import * as userService from '~/services/userService';
 
 const cx = classNames.bind(styles);
 
-
 function Home() {
-    const [suggestItem, setSuggestItem] = useState([1])
+    const [suggestItem, setSuggestItem] = useState([])
 
     useEffect(() => {
         userService.getSuggested({page: 1, perPage: 10})
@@ -21,7 +20,7 @@ function Home() {
 
     return (
         <div className={cx('wrapper')}>
-            {suggestItem.length >0 && suggestItem.map(acc =>(
+            {suggestItem && suggestItem.length >0 && suggestItem.map(acc =>(
                 <ContentItem key={acc.id} data={acc} />
             ))}
         </div>
@@ -29,7 +28,6 @@ function Home() {
 }
 
 export default Home;
-
 
 
 

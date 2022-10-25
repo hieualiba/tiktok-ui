@@ -66,6 +66,7 @@
 
 .del-cmt-btn {
     background-color: transparent;
+    cursor: pointer;
 
     .del-cmt-icon {
         color: transparent;
@@ -74,6 +75,40 @@
     &:hover .del-cmt-icon {
         color: currentColor;
     }
+}
+
+.btn-popper {
+    background: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+
+    .popper-box {
+        color: var(--text-color);
+        text-align: start;
+        min-width: 168px;
+        padding: 12px 0;
+        background-color: transparent;
+        cursor: pointer;
+
+        strong {
+            margin-left: 12px;
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+
+        .popper-icon{
+            font-size: 2rem;
+            margin: 0 2px;
+        }
+
+        &:hover {
+            color: rgb(254, 44, 85);
+        }
+    }
+
+    
 }
 
 .like-btn {
