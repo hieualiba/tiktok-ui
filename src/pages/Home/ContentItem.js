@@ -10,6 +10,7 @@ import CommentItem from "./CommentItem";
 
 const cx = classNames.bind(styles)
 
+
 function ContentItem({ data = [] }) {
 //Dùng useState để set State cho thằng bài viết đã like hay chưa.
     const [isLike, setIsLike] = useState(false)
@@ -23,6 +24,14 @@ function ContentItem({ data = [] }) {
         return storagePost
     }) // nếu ko có data trong localStorage thì lấy []
 
+/*     const arr = [1,2,3,4,5,6,7]
+
+const result = arr.filter((item,index) => {
+    arr.indexOf(item) !== 3
+}) 
+
+console.log(result) */
+
     const handlePost = () => {
         setPosts(prev => {
             const newPost = [...prev, post] // giữ nguyên cmt cũ, add thêm cmt mới
@@ -33,6 +42,12 @@ function ContentItem({ data = [] }) {
             return newPost
         }) 
         setPost('')
+    }
+
+    const handleDelete = () => {
+        console.dir(posts)
+        let postDeleted = [...posts]
+        console.log(postDeleted.filter((item,id) => postDeleted.indexOf(item) !== id))
     }
 
     const handleFollow = () => {
@@ -186,7 +201,7 @@ function ContentItem({ data = [] }) {
                                 </div>
                                 <div className={cx('comment-item')}>
                                         {posts.map((post, index) => (
-                                            <CommentItem key={index} data={post} />
+                                            <CommentItem key={index} id={index} data={post} handleDelete={() => handleDelete()} />
                                         ))}
                                 </div>
 
